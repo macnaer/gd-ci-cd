@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% block content %}
+ <main class="home">
+        <div class="container contact_us">
+            <div class="row">
+                <div class="col-12">
+                    <p class="text-title">
+                        Вибір власного житла- це один з найважливіших рішень у житті людини. Це не дивно, адже від вибору
+                        житла залежатиме комфорт і затишок проживання в певному середовищі кожної людини. <br>
+                        Саме тому перед придбанням нової квартири, потрібно обов'язково ретельно підійти до цього питання,
+                        щоб не помилитися і
+                        <br>
+                        зробити максимально правильний вибір квартири для свого подальшого життя.
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 photo_contact">
+                    <div class="img-border"></div>
+                    <img src="{{ STATIC_PREFIX }}img/contact_us/Contact_us.png">
+                </div>
+                <div class="col-6 input_div">
+                    <form action="#">
+                        <div class="row">
+                            <div class="col-12">
+                                <input type="text" placeholder="Ваше ім'я">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <input type="text" placeholder="Телефон">
+                            </div>
+                            <div class="col-6">
+                                <input type="text" placeholder="E-mail">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <textarea name='text' placeholder="Повідомлення"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="d-flex col-12">
+                                <button class="btn--forward" type="submit">
+                                    Відправити >>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="row contact_info">
+                <div class="col-4 info">
+                    <div><i class="fas fa-map-marker-alt"></i> </div>
+                    <div>
+                        <p class="text-title">
+                            <span class="span_info"> Наша адреса:</span> <br>
+                            33 Коновальця, м.Одеса, Україна
+                        </p>
+                    </div>
+                </div>
+                <div class="col-4 info">
+                    <div><i class="fas fa-mobile-alt"></i></div>
+                    <div>
+                        <p class="text-title">
+                            <span class="span_info">Tel</span> +61 8 1111 5711
+                        </p>
+                    </div>
+                </div>
+                <div class="col-4 info">
+                    <div> <i class="fas fa-envelope"></i></div>
+                    <div>
+                        <p class="text-title">
+                            <span class="span_info">Email:</span> exclusivedirection@ade.com
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+{% endblock %}

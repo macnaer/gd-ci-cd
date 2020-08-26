@@ -1,0 +1,75 @@
+.apartments {
+  .flat--bcg {
+    background-color: $bg-main--color-primary_2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    border: 1px solid $bcg-border-flats;
+    margin-bottom: 30px;
+  }
+
+  .upper {
+    padding: 55px 20px 40px 20px;
+  }
+
+  .info {
+    padding-top: 50px;
+  }
+
+  .title {
+    @include font(15px, $font-proximanova-bold, $font-h1--color-primary, 400);
+  }
+
+  .name {
+    @include font(15px, $font-proximanova-regular, $font-h1--color-primary, 400);
+    margin-left: 10px;
+  }
+
+  h5 {
+    @include font(24px, $font-sfui, $font-h1--color-primary, 400);
+    padding-bottom: 30px;
+  }
+
+  .btn {
+    display: flex;
+    justify-content: flex-end;
+
+  }
+
+  button {
+    a {
+      text-decoration: none;
+      color: $font-text--color-primary;
+    }
+
+    a:hover {
+      color: $default--color__1;
+    }
+
+  }
+
+  .space {
+    height: 80px;
+  }
+
+  .img-border {
+    @include img_border(415px, 315px, 125px, 20px, $bg-img-border--color-primary_1, 16px);
+  }
+
+  .img-border-right {
+    @include img_border(415px, 315px, 0px, 20px, $bg-img-border--color-primary_1, 16px);
+  }
+
+
+  img {
+    position: relative;
+  }
+
+  .imgright {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+}

@@ -1,0 +1,95 @@
+{% load static %}
+<header>
+{% if not header_h1 %} 
+    <div class="container-fluid header">
+{% else %}
+    <div class="container-fluid header_2">
+{% endif %}
+        <div class="header_part_1">
+        </div>
+        <div class="container-fluid header_part_2 login">
+            <div class="container header_part_2">
+                <div class="row header_part_2">
+                    <div class="col-5 logo">
+                        <a href="{% url 'index' %}">
+                            <img src="{% static 'img/Logo.png' %}" alt="Logo">
+                            <span>GREAT<br>DECISION</span>
+                        </a>
+                    </div>
+                    {% if user.is_authenticated %}
+                        <a class="offset-2 col-4 align-self-center enter" href="{% url 'dashboard' %}">Welcome, {{ user.username }}</a>
+                        <a class="col-1 align-self-center" href="javascript:{document.getElementById('logout').submit()}" >Вихід</a>
+                        <form action="{% url 'logout' %}" id="logout" method="POST">
+                            {% csrf_token %}
+                            <input type="hidden">
+                        </form>
+                    {% else %}
+                        <a class="offset-2 col-4 align-self-center enter" href="{% url 'login' %}">Вхід</a>
+                        <a class="col-1 align-self-center" href="{% url 'register' %}">Реєстрація</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="header_part_3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 menu">
+                        {% url 'index' as url_index %}
+                        <a {% if request.path == url_index %}class="menu-active"{% endif %} href="{% url 'index' %}">Головна</a>
+                        {% url 'about' as url_about %}
+                        <a {% if request.path == url_about %}class="menu-active"{% endif %} href="{% url 'about' %}">Про нас</a>
+                        {% url 'guarantee' as url_guarantee %}
+                        <a {% if request.path == url_guarantee %}class="menu-active"{% endif %} href="{% url 'guarantee' %}">Гарантії</a>
+                        {% url 'we_offer' as url_we_offer %}
+                        <a {% if request.path == url_we_offer %}class="menu-active"{% endif %} href="{% url 'we_offer' %}">Що пропонуємо</a>
+                        {% url 'order' as url_order %}
+                        <a {% if request.path == url_order %}class="menu-active"{% endif %} href="{% url 'order' %}">Замовити</a>
+                        {% url 'prices' as url_prices %}
+                        <a {% if request.path == url_prices %}class="menu-active"{% endif %} href="{% url 'prices' %}">Ціни</a>
+                        {% url 'testimonials' as url_testimonials %}
+                        <a {% if request.path == url_testimonials %}class="menu-active"{% endif %} href="{% url 'testimonials' %}">Відгуки</a>
+                        {% url 'discounts' as url_discounts %}
+                        <a {% if request.path == url_discounts %}class="menu-active"{% endif %} href="{% url 'discounts' %}">Знижки</a>
+                        {% url 'contact_us' as url_contact_us %}
+                        <a {% if request.path == url_contact_us %}class="menu-active"{% endif %} href="{% url 'contact_us' %}">Контакти</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% if not header_h1 %}
+        <div class="header_part_4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="name_1">
+                            Ексклюзивне <span>житло</span> <br> в твоєму місті
+                        </div>
+                        <p>
+                            Ми підберемо житло саме під вас, ми працюємо <br>
+                            для найвибагливіших клієнтів
+                        </p>
+                        <form action="{% url 'about' %}">
+                            <button class="btn--forward">Більше >></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% else %}
+        <div class="header_2_part_4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h1>
+                            {{ header_h1|safe }}
+                        </h1>
+                        <p>
+                            {{ header_p|safe }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endif %}
+    </div>
+</header>

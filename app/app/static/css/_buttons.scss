@@ -1,0 +1,59 @@
+.btn--forward {
+  width: 166px;
+  height: 49px;
+  @include button(18px, $font-proximanova-semibold, $btn--color-primary_1, $btn--bg-color-primary_1, 400);
+  line-height: 18px;
+  letter-spacing: 1.1px;
+  border-radius: 30px;
+  border: 2px solid $btn--bg-color-primary_1;
+}
+
+.btn--forward:hover {
+  width: 166px;
+  height: 49px;
+  @include button(18px, $font-proximanova-semibold, $btn--color-primary_2--hover, $btn--bg-color-primary_2--hover, 400);
+  line-height: 18px;
+  letter-spacing: 1.1px;
+  border-radius: 30px;
+  border: 2px solid $btn--bg-color-primary_2--hover;
+}
+
+.btn--we_offer {
+  width: 255px;
+  height: 39px;
+  @include button(18px, $font-proximanova-semibold, $btn--color-primary_1, $btn--bg-color-primary_1, 400);
+  line-height: 18px;
+  letter-spacing: 1.1px;
+  border-radius: 30px;
+  border: 2px solid $btn--bg-color-primary_1;
+}
+
+.btn--we_offer:hover {
+  width: 255px;
+  height: 39px;
+  @include button(18px, $font-proximanova-semibold, $btn--color-primary_2--hover, $btn--bg-color-primary_2--hover, 400);
+  line-height: 18px;
+  letter-spacing: 1.1px;
+  border-radius: 30px;
+  border: 2px solid $btn--bg-color-primary_2--hover;
+}
+
+.btn--show_all {
+  width: 166px;
+  height: 49px;
+  @include button(18px, $font-proximanova-semibold, $default--color__1, $btn--color-primary_1, 400);
+  line-height: 18px;
+  letter-spacing: 1.1px;
+  border-radius: 30px;
+  border: 2px solid $btn--color-primary_1;
+}
+
+.btn--show_all:hover {
+  width: 166px;
+  height: 49px;
+  @include button(18px, $font-proximanova-semibold, $btn--color-primary_3--hover, $btn--bg-color-primary_3--hover, 400);
+  line-height: 18px;
+  letter-spacing: 1.1px;
+  border-radius: 30px;
+  border: 2px solid $btn--color-primary_3--hover;
+}

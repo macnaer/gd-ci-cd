@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% block content %}
+<main class="home">
+    <div class="container testimonials">
+
+        <div class="row top_testimonials">
+            <div class="col-12">
+                <p class="text-title">
+                    Вибір власного житла- це один з найважливіших рішень у житті людини. Це не дивно, адже від вибору
+                    житла залежатиме комфорт і затишок проживання в певному середовищі кожної людини. <br>
+                    Саме тому перед придбанням нової квартири, потрібно обов'язково ретельно підійти до цього питання,
+                    щоб не помилитися і
+                    <br>
+                    зробити максимально правильний вибір квартири для свого подальшого життя.
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <img src="{{STATIC_PREFIX}}img/testimonials/testimonilas.png" alt="">
+            </div>
+        </div>
+
+        <div class="row main_testimonials">
+            <div class="col-12">
+                <p class="main-text">
+                    <span>Ірина Самойлюк , Київ </span>
+                    <i class="far fa-comment"></i>
+                </p>
+                <p class="main-text bottom_comment">
+                    Якщо ви шукаєте нерухомість, то Віра це людина з шаленим терпінням,безлічу варіантів та чудовою
+                    посмішкою!Вона завжди порадить та вкаже недоліки, при цьому не тиснувши на кліента при остаточному
+                    виборі! Дякую компанії за таких працівників!!
+                </p>
+            </div>
+            <div class="col-12">
+                <p class="main-text">
+                    <span>Віктор Шемейко, Львів</span>
+                    <i class="far fa-comment"></i>
+                </p>
+                <p class="main-text bottom_comment">
+                    Шукав квартиру у Львові, менеджер Юлія, зв"язалася зі мною за лічені хвилини та буквально за день
+                    підшукала для мене гідний варіант. Дуже задоволений її роботою, при потребі, буду звертатися тільки
+                    до неї
+                </p>
+            </div>
+            <div class="col-12">
+                <p class="main-text">
+                    <span>Руслан Іванов, Львів</span>
+                    <i class="far fa-comment"></i>
+                </p>
+                <p class="main-text bottom_comment">
+                    Мав змогу співпрацювати з компанію .А саме адміністратором Романом,який відповідально поставився до
+                    своїх обовязків.Договір було підписано швидко без всіляких казусів і непорозумінь ніяких не
+                    винекло.Відразу видно професіональні навички.Буду і надалі співпрацювати з ними.І раджу всім хто
+                    цінить якість роботи.Дякую Вам.
+                </p>
+            </div>
+            <div class="col-12">
+                <p class="main-text">
+                    <span>Дмитро Черкасов, Рівне</span>
+                    <i class="far fa-comment"></i>
+                </p>
+                <p class="main-text bottom_comment">
+                    Користувавася послугами компанії . Дуже сильно задоволений, особливо хотілося б відмітити
+                    професіоналізм ріелтора Світлани . В першу чершу це дуже хороша людина, гуру своєї справи, прикладає
+                    максимум зусиль для того, щоб допомогти клієнтам знайти якісне житло. Всім рекомендую компанію, 5+
+                </p>
+            </div>
+            <div class="col-12">
+                <p class="main-text">
+                    <span>Денис Улянчук, Черкаси</span>
+                    <i class="far fa-comment"></i>
+                </p>
+                <p class="main-text  bottom_comment">
+                    Знайшли мені квартиру - дуже задоволений. Особлива подяка ріелтору, що мені шукала квартиру, а саме
+                    Юлії. З нею приємно мати справу, влаштувала мені багато показів в зручний для мене час і в кінці
+                    кінців підібрали те, що було потрібно. Також переконала власників зійтись на прийнятній для мене
+                    ціні, за це - великий плюс!
+                </p>
+            </div>
+        </div>
+
+        <div class="row navigation">
+            <div class="col-12">
+                <nav aria-label="Page navigation example ">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container-fliud testimonilas_bottom">
+        <div class="container input_div">
+
+            <form action="#">
+                <div class="row">
+                    <div class="col-12">
+                        <textarea name='text' placeholder="Повідомлення"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <input type="text" placeholder="Ім'я">
+                    </div>
+                    <div class="col-6">
+                        <input type="text" placeholder="E-mail">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="d-flex col-12">
+                        <button class="btn--forward" type="submit">
+                            Відправити >>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock %}

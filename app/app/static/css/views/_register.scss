@@ -1,0 +1,30 @@
+.register-form {
+    .container {
+        text-align: center;
+    }
+    form {
+        display: block;
+        margin: 50px auto;
+        padding: 15px;
+        div{
+            justify-content: space-between;
+            padding: 0px;
+            margin: 0px;
+            p{
+                margin-top: 24px;
+            }
+        }
+    }
+    input, button {
+        margin-top: 10px;
+    }
+    a {
+        margin-top: 25px;
+        color: $font-h1--color-primary;
+        font-family: $font-proximanova-semibold;
+        font-size: 18px;
+    }
+    span {
+        color: $font-span--color-primary;
+    }
+}

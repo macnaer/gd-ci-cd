@@ -1,0 +1,25 @@
+@mixin font($font-size, $font-family, $color, $font-weight) {
+    font-size: $font-size;
+    font-family: $font-family;
+    color: $color;
+    font-weight: $font-weight;
+}
+
+@mixin button($font-size, $font-family, $color, $bgcolor, $font-weight) {
+    font-size: $font-size;
+    font-family: $font-family;
+    color: $color;
+    background-color: $bgcolor;
+    font-weight: $font-weight;
+}
+@mixin img_border($width, $height, $left, $top, $border-color, $border-width) {
+    width: $width;
+    height: $height;
+    border-style: solid;
+    border-color: $border-color;
+    border-width: $border-width;
+    position: absolute;
+    z-index: -1;
+    top: $top+$border-width;
+    left: $left+$border-width;
+}

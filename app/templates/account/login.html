@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<main>
+    <div class="register-form d-block col-12">
+        <div class="container">
+            <form action="{% url 'login' %}" method="POST" class="col-6">
+                {% csrf_token %}
+                <h2>Вхід в <span>особистий кабінет</span></h2>
+                {% comment %} {% include 'partials/_alert.html' %} {% endcomment %}
+                <input type="text" name="username" placeholder="Логін" required="">
+                <input type="password" name="password" placeholder="Пароль" required="">
+
+                <div class="col-12 d-flex mt-4">
+                    <button class="btn--forward" type="submit" value="SIGNUP">Увійти</button>
+                    <a href ="register">Зареєструватися</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock %}

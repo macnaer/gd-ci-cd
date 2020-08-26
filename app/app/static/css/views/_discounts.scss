@@ -1,0 +1,8 @@
+.discounts{
+    .image-container{
+        position: relative;
+    }
+    .img-border{
+        @include img_border(375px, 540px, 90px, -55px, $bg-img-border--color-primary_1, 16px);
+    }
+}

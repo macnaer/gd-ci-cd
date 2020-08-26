@@ -1,0 +1,18 @@
+.order-img{
+    margin-top: 50px;
+    .image-container{
+        position: relative;
+    }
+    .img-border{
+        @include img_border(360px, 485px, 50px, -55px, $bg-img-border--color-primary_1, 16px);
+    }
+}
+.order-options{
+    h2 {
+        text-transform: uppercase;
+        text-align: left;
+    }
+    span{
+        color: $font-span--color-primary;
+    }
+}

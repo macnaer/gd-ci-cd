@@ -1,0 +1,34 @@
+{% load compress %}
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home Page</title>
+    {% compress css %}
+        {% comment %} <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap-reboot.css' %}"> {% endcomment %}
+        {% comment %} <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap-grid.css' %}"> {% endcomment %}
+        <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.css' %}">
+        <link rel="stylesheet" type="text/x-scss" href="{% static "css/main.scss" %}">
+    {% endcompress %}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+<body>
+    {% include 'partials/_header.html' %}
+    {% include 'partials/_alert.html' %}
+    {% block content %} {% endblock %}
+    {% include 'partials/_review.html' %}
+    {% include 'partials/_footer.html' %}
+    {% compress js %}
+        <script src="{% static 'js/jquery-3.5.1.js' %}"></script>
+        <script src="{% static 'js/bootstrap.js' %}"></script>
+        <script src="{% static 'js/review.js' %}"></script>
+        <script src="{% static 'js/galery_apartment.js' %}"></script>
+        <script src="{% static 'js/alert.js' %}"></script>
+        {% comment %} <script src="{% static 'js/bootstrap.bundle.js' %}"></script> {% endcomment %}
+    {% endcompress %}
+</body>
+</html>

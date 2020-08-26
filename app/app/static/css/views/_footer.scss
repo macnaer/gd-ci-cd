@@ -1,0 +1,32 @@
+footer{
+    .container-fluid:nth-child(1){
+        background-color: $bg-footer--color-primary_1;
+        @include font(15px, $font-proximanova-regular, $font-text-footer--color-primary_1, normal);
+        box-shadow: $default--color__4 0 0 5px;
+        position: relative;
+        z-index: 1;
+    }
+    .container-fluid:nth-child(2){
+        background-image: linear-gradient($default--color__3, $default--color__3), url(../img/footer.jpg);
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        height: 318px;
+        background-position: center center;
+        header{
+            @include font(25px, $font-proximanova-light, $font-text-footer--color-primary_1, normal);
+            .yellow{
+                color: $font-text-footer--color-primary_2;
+            }
+        }
+        main{
+            @include font(14px, $font-proximanova-regular, $font-text-footer--color-primary_3, auto);
+        }
+    }
+    .container-fluid:nth-child(3){
+        background-color: $bg-footer--color-primary_1;
+        @include font(18px, $font-sfui, $font-text-footer--color-primary_1, normal);
+        box-shadow: $default--color__4 0 0 5px;
+        position: relative;
+        z-index: 1;
+    }
+}

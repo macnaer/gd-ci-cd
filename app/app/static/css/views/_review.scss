@@ -1,0 +1,72 @@
+.review {
+    margin-top: 80px;
+    margin-bottom: 50px;
+    text-align: center;
+    h2 {
+        text-transform: uppercase;
+    }
+    button {
+        margin: 10px auto;
+    }
+    .text_div:nth-child(2) {
+        display: inline-block;
+        margin: 0 auto;
+    }
+    #carousel img {
+        cursor: pointer;
+    }
+    .quote_hr_div {
+        border-bottom: solid 2px $default--color__2;
+        margin: 25px auto;
+        height: 50px;
+        justify-content: center;
+        position: relative;
+    }
+    .qoute_circle {
+        background-color: $default--color__2;
+        height: 42px;
+        border-radius: 50%;
+        margin-top: 26px;
+        position: relative;
+    }
+    #scobochki {
+        @include font(18px, $font-proximanova-bold, $default--color__1, normal);
+        font-size: 55px;
+        line-height: 0px;
+        display: block;
+        position: absolute;
+        top: 5px;
+        left: 6.5px;
+    }
+    #carou_left, #carou_right {
+        cursor: pointer;
+        height: auto;
+    }
+    #carou_left {
+        display: block;
+        position: absolute;
+        top: 40px;
+        left: 10px;
+    }
+    #carou_right {
+        display: block;
+        position: absolute;
+        top: 40px;
+        right: 10px;
+        cursor: pointer;
+    }
+    #root span {
+        color: $default--color__2;
+        text-transform: uppercase;
+    }
+    .text_div {
+        height: 120px;
+        position: relative;
+        display: none; // Блок з текстом відображається за допомогою скриптів у review.js
+        width: 90%;
+    }
+    #carousel {
+        display: block;
+        position: relative;
+    }
+}

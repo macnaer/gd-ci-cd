@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="apartments">
+    <form action="{% url 'search' %}">
+        <div class="col-6 order-options">
+            <h2 class="mt-4">Зробіть <span class="yellow">вибір</span></h2>
+            <input type="text" name="city" placeholder="City">
+            {% comment %} <label for="name">City</label> {% endcomment %}
+            {% comment %} <select>
+                <option disabled selected>Місто</option>
+                <option></option>
+            </select> {% endcomment %}
+            <select>
+                <option disabled selected>Тип житла</option>
+                <option></option>
+            </select>
+            <select>
+                <option disabled selected>Площа</option>
+                <option></option>
+            </select>
+            <select>
+                <option disabled selected>Вартість</option>
+                <option></option>
+            </select>
+            <div class="d-flex col-12">
+                <button class="btn--show_all">Показати все</button>
+                <button type="submit" class="btn--forward">Вперед >></button>
+            </div>
+        </div>
+    </form>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <p class="text-title upper">
+                    Вибір власного житла- це один з найважливіших рішень у житті людини. Це не дивно, адже від вибору житла залежатиме комфорт і затишок проживання в певному середовищі кожної людини.<br>Саме тому перед придбанням нової квартири, потрібно обов'язково ретельно підійти до цього питання, щоб не помилитися і зробити максимально правильний вибір квартири для свого подальшого життя.
+                </p>
+            </div>
+        </div>
+            {% if apartments %}
+            <div class="row">
+                {% for apartment in apartments %}
+                <div class="col-lg-6 col-sm-12">
+                    <img src="{{ apartment.photo_0.url }}">
+                </div>
+                <div class="offset-lg-1 col-lg-5 col-sm-12 info">
+                    <h5>{{ apartment.title }}</h5>
+                    <div class="flat--bcg">
+                        <div>
+                            <p><span class="title">Місто:</span><span class="name">{{ apartment.city }}</span></p>
+                            <p><span class="title">Площа:</span><span class="name">{{ apartment.square_all }} м<sup>2</sup></span></p>
+                        </div>
+                        <div>
+                            <p><span class="title">Тип житла:</span><span class="name">{{ apartment.apartment_type }}</span></p>
+                            <p><span class="title">Ціна:</span><span class="name">{{ apartment.price }} USD</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn"><button class="btn--forward"><a
+                            href="{% url 'apartment' apartment.id  %}">Більше>></a></button>
+                </div>
+                <div class="col-12 space"></div>
+                {% endfor %}
+            </div>
+            {% else %}
+            <div>Нічого не знайдено</div>
+            {% endif %}
+            <div class="col-12 space"></div>
+            <div class="pagination col-12">
+                <nav aria-label="Page navigation example">
+                    <ul class="step-links pagination">
+                        <li class='page-item'><a class='page-link' {% if apartments.has_previous %}href="?page={{ apartments.previous_page_number }}"{% else %}href="#"{% endif %}>previous</a></li>
+                        {% for i in apartments.paginator.page_range %}
+                        {% if i == apartments.number %}
+                        <li class='page-item'><a style="color:red;" class='page-link' href="?page={{i}}">{{i}}</a></li>
+                        {% else %}
+                        <li class='page-item'><a class='page-link' href="?page={{i}}">{{i}}</a></li>
+                        {% endif %}
+                        {% endfor %}                       
+                        <li class='page-item'><a class='page-link' {% if apartments.has_next %}href="?page={{ apartments.next_page_number }}"{% else %}href="#"{% endif %}>next</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>  
+</section>
+{% endblock %}

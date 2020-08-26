@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="select_apartment">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <p class="text-title upper">
+                    Вибір власного житла- це один з найважливіших рішень у житті людини. Це не дивно, адже від вибору житла залежатиме комфорт і затишок проживання в певному середовищі кожної людини.<br>Саме тому перед придбанням нової квартири, потрібно обов'язково ретельно підійти до цього питання, щоб не помилитися і зробити максимально правильний вибір квартири для свого подальшого життя.
+                </p>
+            </div>
+<!-- Галерея------------------------------- -->
+            <div class="col-12 galery">
+            {% if user.is_authenticated %}
+                <button class="btn--forward" data-toggle="modal" data-target="#exampleModal"
+                    data-whatever="@getbootstrap">Contact with realtor</button>
+            {% endif %}
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="{% url 'contact' %}" method="POST">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="apartment_id" value="{{ apartment.id }}">
+                                    <input type="hidden" name="realtor_email" value="{{ apartment.realtor.email }}">
+                                    <input type="hidden" name="apartment_title" value="{{ apartment.title }}">
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="col-form-label">Name</label>
+                                        <input type="text" name="name" value="{{ user.first_name }} {{user.last_name}}" class="form-control" id="recipient-name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email" class="col-form-label">Email</label>
+                                        <input type="email" name="email" value="{{ user.email }}" class="form-control" id="email">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone" class="col-form-label">Phone</label>
+                                        <input type="text" name="phone" class="form-control" id="phone">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message-text" class="col-form-label">Message:</label>
+                                        <textarea name="message" class="form-control" id="message-text"></textarea>
+                                    </div>
+                                    <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Send message</button>
+                            </div>
+                                </form>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+				<div class="main-apartment">
+                    <div class="right"> <img src="{{STATIC_PREFIX}}img/apartments/right.png"/> </div>
+                    <img src="{{ apartment.photo_0.url }}" width="100%" alt="" id="main">
+                    <div class="left"> <img src="{{STATIC_PREFIX}}img/apartments/left.png"/> </div>
+				</div>
+            </div>
+            <div class="hidden">
+                <div class="slike">
+                    <img src="{{ apartment.photo_0.url }}" width="100%" alt="" class="small-slike">
+                    {% if apartment.photo_1 %}
+                    <img src="{{ apartment.photo_1.url }}" width="100%" alt="" class="small-slike">
+                    {% endif %}
+                    {% if apartment.photo_2 %}
+                    <img src="{{ apartment.photo_2.url }}" width="100%" alt="" class="small-slike">
+                    {% endif %}
+                    {% if apartment.photo_3 %}
+                    <img src="{{ apartment.photo_3.url }}" width="100%" alt="" class="small-slike">
+                    {% endif %}
+                    {% if apartment.photo_4 %}
+                    <img src="{{ apartment.photo_4.url }}" width="100%" alt="" class="small-slike">
+                    {% endif %}
+                    {% if apartment.photo_5 %}
+                    <img src="{{ apartment.photo_5.url }}" width="100%" alt="" class="small-slike">
+                    {% endif %}
+                    {% if apartment.photo_6 %}
+                    <img src="{{ apartment.photo_6.url }}" width="100%" alt="" class="small-slike">
+                    {% endif %}
+                    {% if apartment.photo_7 %}
+                    <img src="{{ apartment.photo_7.url }}" width="100%" alt="" class="small-slike">
+                    {% endif %}
+                </div>
+            </div>
+<!-- --------------------------------------------------------- -->
+        </div>
+    </div>
+    <div class="container">
+        <div class="row flat--bcg">    
+            <div class="offset-1 col-2 title">
+                <p>Місто:</p>
+                <p>Тип житла:</p>
+                <p>Загальна площа:</p>
+                 {% if apartment.square_live %}
+                <p>Житлова площа:</p>
+                 {% endif %}
+                <p>Кімнат:</p>
+                <p>Поверх:</p>
+            </div>
+            <div class="col-1 name">
+                <p>{{ apartment.city }}</p>
+                <p>{{ apartment.apartment_type }}</p>
+                <p>{{ apartment.square_all }} м<sup>2</sup></p>
+                {% if apartment.square_live %}
+                <p>{{ apartment.square_live }} м<sup>2</sup></p>
+                {% endif %}
+                
+                <p>{{ apartment.rooms }}</p>
+                <p>{{ apartment.floor }}</p>
+            </div>
+            <div class="col-7">
+                {% if apartment.description %}
+                <p class="main-text">{{ apartment.description }}</p> 
+                {% endif %}
+                <p class="price"><span class="name-big" >Вартість</span> <span class="title-big">{{ apartment.price }} USD</span></p>
+            </div>
+        </div>
+        {% if user.is_authenticated %}
+            <div class="row">
+                <div class="col-2">
+                    <form action="/apartments/favorits" method="POST">
+                        {% csrf_token %}
+                        <input type="submit" value="{% if not in_favorits %}В обрані{% else %}З обраних{% endif %}" class="btn--forward">
+                        <input type="hidden" name="apartment_id" value="{{ apartment.id }}">
+                        <input type="hidden" name="action" value="{% if not in_favorits %}add{% else %}delete{% endif %}">
+                    </form>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

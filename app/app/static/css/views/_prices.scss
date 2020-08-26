@@ -1,0 +1,48 @@
+.page_prices{
+    .price{
+        margin-top: 50px;
+    }
+    .img_prices{
+        margin-top: 50px;
+        img{
+            width: 100%;
+        }
+    }
+    .prices{
+        margin-top: 80px;
+        border: 6px solid #fff;
+        border-radius: 20px;
+        box-shadow: 0 4px 8px gray;
+        .col-2{
+            display: flex;
+            align-items: center;
+        }
+        span{
+            color: $btn--bg-color-primary_2--hover;
+        }
+        select{
+            height: 25px;
+            width: 164px;
+            display: flex;
+            align-items: center;
+            border-radius: 20px;
+            padding-left: 5px;
+        }
+    }
+    .header_prices{
+        height: 69px;
+        @include font(35px, $font-proximanova-bold, $font-h1--color-primary, normal);
+        .header_text{
+        margin-left: 50px;
+        display: flex;
+        align-items: center;
+    }
+    }
+    .prices_gray{
+        height: 41px;
+        background-color: #f8f8f8;
+    }
+    .prices_white{
+        height: 41px;
+    }
+}
