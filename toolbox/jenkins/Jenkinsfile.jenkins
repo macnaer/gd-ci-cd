@@ -37,30 +37,30 @@ pipeline  {
                 '''
             }
         }
-        // stage("docker stop") {
-        //     steps {
-        //         echo " ============== stoping all images =================="
-        //         sh '''
-        //         docker stop chatterboxserver
-        //         '''
-        //     }
-        // } 
-        // stage("docker remove") {
-        //     steps {
-        //         echo " ============== removing all docker containers =================="
-        //         sh '''
-        //         docker rm chatterboxserver
-        //         '''
-        //     }
-        // }
-        //stage("docker run") {
-        //    steps {
-        //        echo " ============== starting chatterbox server =================="
-        //        sh '''
-        //        docker run -d --restart=always --name chatterboxserver -p 3200:3200 macnaer/chatterboxserver
-        //        '''
-        //    }
-        //}
+        stage("docker stop") {
+            steps {
+                echo " ============== stoping all containers =================="
+                sh '''
+                docker stop gd
+                '''
+            }
+        } 
+        stage("docker remove") {
+            steps {
+                echo " ============== removing all docker containers =================="
+                sh '''
+                docker rm gd
+                '''
+            }
+        }
+        stage("docker run") {
+           steps {
+               echo " ============== starting chatterbox server =================="
+               sh '''
+               docker run -d --restart=always --name gd -p 80:8080 macnaer/gd
+               '''
+           }
+        }
         // stage("Deploy to stage server") {
         //     steps {
         //         echo " ============== Running playbook =================="
